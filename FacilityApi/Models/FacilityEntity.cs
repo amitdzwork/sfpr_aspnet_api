@@ -28,6 +28,15 @@ namespace FacilityApi.Models
         [JsonPropertyName("zipcode")]
         public int? ZipCode { get; set; }
 
+        [JsonPropertyName("squarefeet")]
+        public double? SquareFeet { get; set; }
+
+        [JsonPropertyName("perimeter")]
+        public double? Perimeter { get; set; }
+
+        [JsonPropertyName("acres")]
+        public double? Acres { get; set; }
+
         [JsonPropertyName("latitude")]
         public double? Latitude { get; set; }
 

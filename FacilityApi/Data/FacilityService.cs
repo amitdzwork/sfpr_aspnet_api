@@ -7,6 +7,7 @@ using System.Net;
 using System.Reflection.Emit;
 using MongoDB.Driver.Core.Operations;
 using Microsoft.Extensions.Options;
+using System.Reflection.Metadata;
 
 namespace FacilityApi.Data
 {
@@ -79,6 +80,9 @@ namespace FacilityApi.Data
                 {"city", facility.City },
                 {"state", facility.State },
                 {"zipcode", facility.ZipCode },
+                {"squarefeet", facility.SquareFeet },
+                {"perimeter", facility.Perimeter },
+                {"acres", facility.Acres },
                 {"latitude", facility.Latitude },
                 {"longitude", facility.Longitude }
             };
@@ -107,6 +111,9 @@ namespace FacilityApi.Data
                 .Set("city", facility.City)
                 .Set("state", facility.State)
                 .Set("zipcode", facility.ZipCode)
+                .Set("squarefeet", facility.SquareFeet)
+                .Set("perimeter", facility.Perimeter)
+                .Set("acres", facility.Acres)
                 .Set("latitude", facility.Latitude)
                 .Set("longitude", facility.Longitude);
 
@@ -132,7 +139,7 @@ namespace FacilityApi.Data
         }
 
         private Facility ConvertBsonToFacility(BsonDocument document)
-        {         
+        {
             return new Facility
             {
                 FacilityName = document["facilityname"].AsString,
@@ -141,11 +148,13 @@ namespace FacilityApi.Data
                 City = document["city"].AsString,
                 State = document["state"].AsString,
                 ZipCode = document["zipcode"].AsInt32,
+                SquareFeet = document["squarefeet"].AsDouble,
+                Perimeter = document["perimeter"].AsDouble,
+                Acres = document["acres"].AsDouble,
                 Latitude = document["latitude"].AsDouble,
                 Longitude = document["longitude"].AsDouble
-            };
+            };                      
         }
-
     }
 }
 

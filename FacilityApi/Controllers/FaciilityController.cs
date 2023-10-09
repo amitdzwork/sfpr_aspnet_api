@@ -12,7 +12,7 @@
     namespace FacilityApi.Controllers
     {
 
-        [Route("api/v1/facilities")]
+        [Route("/")]
         [ApiController]
         public class FacilityController : ControllerBase
         {
@@ -28,9 +28,10 @@
             /// </summary>
             /// <returns></returns>
             [HttpGet]
+            [Route("/api/facilities")]
             [SwaggerResponse((int)HttpStatusCode.NoContent, "No facilities have been filed with this system")]
             public async Task<IActionResult> GetFacilities()
-            {
+            {         
                 try
                 {
                     var facilityList = await _facilityService.GetAsync();
@@ -42,10 +43,11 @@
                     return Ok(facilityList);
                 }
                 catch (Exception)
-                {
+                {          
                     return StatusCode(StatusCodes.Status400BadRequest);
                 }
-            }
+            
+        }
 
             /// <summary>
             /// Gets all the facilities in San Francisco of the specified type
@@ -54,7 +56,7 @@
             /// <response code="204">No facilities of the specified type found</response>
             /// <returns></returns>
             [HttpGet]
-            [Route("{facilitytype}")]
+            [Route("/api/facilities/{facilitytype}")]
 
             public async Task<IActionResult> GetFacilitiesByType(string facilityType)
             {
@@ -89,7 +91,7 @@
             /// <returns></returns>
 
             [HttpPost]
-            [Route("add")]
+            [Route("/api/facilities")]
             public async Task<IActionResult> AddFacility(Facility facility)
             {
                 var transactionResult = await _facilityService.AddFacitity(facility);
@@ -106,17 +108,17 @@
                 }
             }
 
-        /// <summary>
-        /// Updates the facility with entered information
-        /// </summary>
-        /// <param name="facilityName"></param>
-        /// <param name="facility"></param>
-        /// <response code="400">There is a problem with the facility data received by this system</response>
-        /// <response code="404">The facility does not exist</response>
-        /// <response code="500">The facility is valid but this system cannot process it</response>
-        /// <returns></returns>
-        [HttpPut]
-            [Route("{facilityname}")]
+            /// <summary>
+            /// Updates the facility with entered information
+            /// </summary>
+            /// <param name="facilityName"></param>
+            /// <param name="facility"></param>
+            /// <response code="400">There is a problem with the facility data received by this system</response>
+            /// <response code="404">The facility does not exist</response>
+            /// <response code="500">The facility is valid but this system cannot process it</response>
+            /// <returns></returns>
+            [HttpPut]
+            [Route("/api/facilities/{facilityname}")]
             public async Task<IActionResult> UpdateFacility(string facilityName, Facility facility)
             {
                 var transactionResult = await _facilityService.UpdateFacility(facilityName, facility);
@@ -140,7 +142,7 @@
             /// <response code="404">The facility was not found in the system</response>
             /// <returns></returns>
             [HttpDelete]
-            [Route("{facilityname}")]
+            [Route("/api/facilties/{facilityname}")]
             public async Task<IActionResult> DeleteFacilityByName(string facilityName)
             {
                 var result = await _facilityService.DeleteFacilityByName(facilityName);

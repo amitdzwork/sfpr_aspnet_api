@@ -33,11 +33,11 @@ builder.Services.AddSingleton<FacilityService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
+//if (app.Environment.IsDevelopment())
+//{
     app.UseSwagger();
-    app.UseSwaggerUI(options => options.SwaggerEndpoint("/swagger/facility/swagger.jso", "Facilities in SF API"));
-}
+    app.UseSwaggerUI(options => options.SwaggerEndpoint("/swagger/facility/swagger.json", "Facilities in SF API"));
+//}
 
 app.UseCors(config =>
 {
@@ -48,8 +48,8 @@ app.UseCors(config =>
     });
 app.UseHttpsRedirection();
 
-
-app.UseAuthorization();
+//app.UseDeveloperExceptionPage();
+//app.UseAuthorization();
 
 app.MapControllers();
 
