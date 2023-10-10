@@ -1,7 +1,7 @@
 
 # facilityapi
 
-facilityapi is an ASP.NET Web API that interacts with a MongoDB database to query information about facilities maintained by the Recreation and Parks Department. 
+facilityapi is an Asp.net Core Web API that interacts with a MongoDB database to query information about facilities maintained by the Recreation and Parks Department. 
 The dataset is provided by DataSF and contains details about structural or physical amenities within property boundaries.
 
 ## Installation
