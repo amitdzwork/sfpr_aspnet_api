@@ -1,7 +1,7 @@
 
-# facilityapi
+# sfpr_aspnet_api
 
-facilityapi is an Asp.net Core Web API that interacts with a MongoDB database to query information about facilities maintained by the Recreation and Parks Department. 
+sfpr_aspnet_api is an Asp.net Core Web API that interacts with a MongoDB database to query information about facilities maintained by the Recreation and Parks Department. 
 The dataset is provided by DataSF and contains details about structural or physical amenities within property boundaries.
 
 ## Installation
@@ -16,8 +16,8 @@ Make sure you have the following prerequisites installed before setting up the p
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/amitdzwork/facilityapi.git
-    cd FacilityApi
+    git clone https://github.com/amitdzwork/sfpr_aspnet_api.git
+    cd sfpr_aspnet_api
     ```
 
 2. Restore the dependencies and build the project:
