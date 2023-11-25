@@ -1,7 +1,7 @@
 
 # sfpr_aspnet_api
 
-sfpr_aspnet_api is an Asp.net Core Web API that interacts with a MongoDB database to query information about facilities maintained by the Recreation and Parks Department. 
+sfpr_aspnet_api is an Asp.net Core Web API written in C# that interacts with a MongoDB database to query information about facilities maintained by the San Francisco Recreation and Parks Department. 
 The dataset is provided by DataSF and contains details about structural or physical amenities within property boundaries.
 
 ## Installation
